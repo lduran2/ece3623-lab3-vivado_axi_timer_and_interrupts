@@ -2,11 +2,11 @@
 # Webtalk v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # 
-# Start of session at: Sun Sep 13 17:05:55 2020
-# Process ID: 5744
-# Current directory: C:/Zynq_Book/zynq_interrupts/zynq_interrupts.sdk/webtalk
+# Start of session at: Tue Sep 22 23:17:21 2020
+# Process ID: 15280
+# Current directory: C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.sdk/webtalk
 # Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
-# Log file: C:/Zynq_Book/zynq_interrupts/zynq_interrupts.sdk/webtalk/webtalk.log
-# Journal file: C:/Zynq_Book/zynq_interrupts/zynq_interrupts.sdk/webtalk\webtalk.jou
+# Log file: C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.sdk/webtalk/webtalk.log
+# Journal file: C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.sdk/webtalk\webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl

@@ -2,24 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="INTCInst" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ìntcinitfunction"/>
-			<item value="ìntc"/>
-			<item value="BTN_Intr"/>
 			<item value="INTCInst"/>
-			<item value="INT"/>
+			<item value="INTC_DEVICE_ID"/>
+			<item value="IntcInitFunction"/>
+			<item value="XIL_EXCEPTION_ID_INT"/>
+			<item value="BTN_Int"/>
+			<item value="BTN_INT"/>
+			<item value="InterruptSystemSetup"/>
+			<item value="XScuGicInstancePtr"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="385" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="523" key="DIALOG_HEIGHT"/>
 		<item value="779" key="DIALOG_X_ORIGIN"/>
 		<item value="173" key="DIALOG_Y_ORIGIN"/>

@@ -48,11 +48,11 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_gpio_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_timer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_rst_ps7_0_100M_0"/>
 </GenRun>
