@@ -1,10 +1,15 @@
 /*
  * interrupt_counter_with_switch_poll.c
  *
- *      Created on: 	09/23/2020
- *  current Author:     Leomar Duran
- *   tut_2B Author: 	Ross Elliot
- *         Version:		1.2
+ *  Created on:		09/23/2020
+ *      Author:		Leomar Duran
+ *     Version:		1.2
+ *
+ * interrupt_counter_tut_2B.c
+ *
+ *  Created on: 	Unknown
+ *      Author: 	Ross Elliot
+ *     Version:		1.1
  */
 
 /********************************************************************************************
@@ -52,11 +57,12 @@ XGpio LEDInst, BTNInst, SWCInst;
 XScuGic INTCInst;
 // timer instance
 XTmrCtr TMRInst;
-// shared state
+// global state
 static int led_data;
 static int btn_value;
 static int tmr_count;
-static int n_expires;
+static int n_expires;	// number of timer expires before count
+						// increments
 
 //----------------------------------------------------
 // PROTOTYPE FUNCTIONS
@@ -136,6 +142,7 @@ int main (void)
   if(status != XST_SUCCESS) return XST_FAILURE;
   // Initialize Slide Switches
   status = XGpio_Initialize(&SWCInst, SWCS_DEVICE_ID);
+  if(status != XST_SUCCESS) return XST_FAILURE;
   // Set LEDs direction to outputs
   XGpio_SetDataDirection(&LEDInst, 1, 0x00);
   // Set all buttons direction to inputs
