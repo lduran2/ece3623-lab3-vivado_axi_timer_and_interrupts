@@ -7,20 +7,20 @@ LD_SRCS += \
 ../src/lscript.ld 
 
 C_SRCS += \
-../src/interrupt_counter_tut_2D.c 
+../src/interrupt_counter_with_switch_poll.c 
 
 OBJS += \
-./src/interrupt_counter_tut_2D.o 
+./src/interrupt_counter_with_switch_poll.o 
 
 C_DEPS += \
-./src/interrupt_counter_tut_2D.d 
+./src/interrupt_counter_with_switch_poll.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM v7 gcc compiler'
-	arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../interrupt_counter_bsp/ps7_cortexa9_0/include -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"$@" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

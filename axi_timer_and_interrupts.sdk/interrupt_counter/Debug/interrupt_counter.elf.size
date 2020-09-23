@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-  29728	   1968	  22680	  54376	   d468	interrupt_counter.elf
+  29952	   1984	  22712	  54648	   d578	interrupt_counter.elf

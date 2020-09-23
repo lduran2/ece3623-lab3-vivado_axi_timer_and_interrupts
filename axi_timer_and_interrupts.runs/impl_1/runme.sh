@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Zynq_Book/zynq_interrupts/zynq_interrupts.runs/impl_1'
+HD_PWD='C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -42,6 +42,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log zynq_interrupt_system_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source zynq_interrupt_system_wrapper.tcl -notrace
+EAStep vivado -log zynq_interrupt_system_3_gpios_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source zynq_interrupt_system_3_gpios_wrapper.tcl -notrace
 
 

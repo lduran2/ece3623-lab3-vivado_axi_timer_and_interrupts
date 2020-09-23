@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;interrupt_counter/src/interrupt_counter_tut_2D.c&apos; to &apos;interrupt_counter_with_switch_poll.c&apos;" description="Rename resource &apos;interrupt_counter_tut_2D.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/interrupt_counter_tut_2D.c" name="interrupt_counter_with_switch_poll.c" stamp="1600887024582" updateReferences="true"/>
+</session>

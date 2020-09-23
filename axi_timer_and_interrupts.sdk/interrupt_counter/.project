@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>interrupt_counter</name>
-	<comment>Created by SDK v2019.1. interrupt_counter_bsp - ps7_cortexa9_0</comment>
+	<comment></comment>
 	<projects>
-		<project>interrupt_counter_bsp</project>
+		<project>interrupt_counter_3_gpios_bsp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

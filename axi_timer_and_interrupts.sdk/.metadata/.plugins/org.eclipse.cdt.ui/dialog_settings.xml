@@ -7,7 +7,13 @@
 		<item value="642" key="DIALOG_X_ORIGIN"/>
 		<item value="47" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="CPathsPropertyPage">
+		<item value="4" key="pageIndex"/>
+	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="IncludeSysmbolsPropertyPage">
+		<item value="0" key="pageIndex"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

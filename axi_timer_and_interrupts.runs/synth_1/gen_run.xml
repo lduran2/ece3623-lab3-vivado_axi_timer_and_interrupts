@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1600028847">
-  <File Type="PA-TCL" Name="zynq_interrupt_system_wrapper.tcl"/>
-  <File Type="REPORTS-TCL" Name="zynq_interrupt_system_wrapper_reports.tcl"/>
-  <File Type="RDS-RDS" Name="zynq_interrupt_system_wrapper.vds"/>
-  <File Type="RDS-UTIL" Name="zynq_interrupt_system_wrapper_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="zynq_interrupt_system_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="zynq_interrupt_system_wrapper.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1600883305">
+  <File Type="PA-TCL" Name="zynq_interrupt_system_3_gpios_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="zynq_interrupt_system_3_gpios_wrapper_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="zynq_interrupt_system_3_gpios_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="zynq_interrupt_system_3_gpios_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="zynq_interrupt_system_3_gpios_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="zynq_interrupt_system_3_gpios_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="zynq_interrupt_system_3_gpios_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="zynq_interrupt_system_3_gpios_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="zynq_interrupt_system_3_gpios_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd">
+    <File Path="$PSRCDIR/sources_1/bd/zynq_interrupt_system_3_gpios/zynq_interrupt_system_3_gpios.bd">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/zynq_interrupt_system.bd"/>
-        <Attr Name="ImportTime" Val="1600028757"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.v">
+    <File Path="$PSRCDIR/sources_1/bd/zynq_interrupt_system_3_gpios/hdl/zynq_interrupt_system_3_gpios_wrapper.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../zynq_interrupts/zynq_interrupts.srcs/sources_1/bd/zynq_interrupt_system/hdl/zynq_interrupt_system_wrapper.v"/>
-        <Attr Name="ImportTime" Val="1600028801"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -28,7 +27,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="zynq_interrupt_system_wrapper"/>
+      <Option Name="TopModule" Val="zynq_interrupt_system_3_gpios_wrapper"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
@@ -48,11 +47,12 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_auto_pc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_gpio_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_gpio_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_axi_timer_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_rst_ps7_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_axi_gpio_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_axi_timer_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_axi_gpio_2_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0"/>
 </GenRun>

@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Zynq_Book/zynq_interrupts/zynq_interrupts.runs/synth_1'
+HD_PWD='C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log zynq_interrupt_system_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_interrupt_system_wrapper.tcl
+EAStep vivado -log zynq_interrupt_system_3_gpios_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_interrupt_system_3_gpios_wrapper.tcl
