@@ -71,6 +71,8 @@
 #define	BTN_INC_EXPIRES		0b0010
 // switch to disable button interrupts
 #define	SWC_DISABLE_BTNS	0b0001
+// switch to enable the increment expirations button
+#define	SWC_ENABLE_INC_BTN	0b0010
 
 // GPIO instances
 XGpio LEDInst, BTNInst, SWCInst;
@@ -84,6 +86,7 @@ static int btn_value;
 static int tmr_count;
 static int n_expires;	// number of timer expires before scale
 						// increments
+static enum { YES, NO } is_inc_enabled = NO;
 
 // for debouncing
 static enum { NOT_DEBOUNCING, DEBOUNCING } dbn_state = NOT_DEBOUNCING;
@@ -116,9 +119,14 @@ void BTN_Intr_Handler(void *InstancePtr)
 			return;
 		}
 	btn_value = XGpio_DiscreteRead(&BTNInst, 1);
+	xil_printf("button pressed:\t0x%02x\t\t", btn_value);
+	xil_printf("# expirations:\t%d\t\t", n_expires);
+	xil_printf("inc enabled:\t%d\n", (is_inc_enabled == YES) & 1);
+
 
 	// debounce if the button to increment the expiration is pressed and n_expires is not already at max
-	if ((btn_value == BTN_INC_EXPIRES)
+	if ((is_inc_enabled == YES)
+			&& (btn_value == BTN_INC_EXPIRES)
 			&& (n_expires != MAX_N_EXPIRES))
 	{
 		dbn_state = DEBOUNCING;		// set state to debouncing
@@ -129,6 +137,7 @@ void BTN_Intr_Handler(void *InstancePtr)
 	// Increment counter based on button value
 	// Reset if centre button pressed
 	led_data = led_data + btn_value;
+	xil_printf("LED count:\t0x%02x\n", led_data);
 
     XGpio_DiscreteWrite(&LEDInst, 1, led_data);
     (void)XGpio_InterruptClear(&BTNInst, BTN_INT);
@@ -152,7 +161,7 @@ void TMR_Intr_Handler(void *data)
 					if (btn_value == BTN_INC_EXPIRES) {
 						dbn_state = NOT_DEBOUNCING;	// stop debouncing
 						n_expires++;	// increase the n_expires
-						xil_printf("# expirations:\n%d\n", n_expires);
+						xil_printf("# expirations:\t%d\n", n_expires);
 						(void)XGpio_InterruptClear(&BTNInst, BTN_INT);
 
 						// Enable GPIO interrupts
@@ -160,9 +169,8 @@ void TMR_Intr_Handler(void *data)
 					}
 				}
 			break;
-			default:
-				// if not debouncing, do nothing
-			break;
+			// if not debouncing, do nothing
+			default:	break;
 		}
 
 		// Once timer has expired (n_expires scaled) times,
@@ -252,7 +260,7 @@ int main (void)
 			  XGpio_InterruptEnable(&BTNInst, BTN_INT);
 		  }
 	  }
-	  // if on
+	  // if disable buttons on
 	  if ((swc_value & SWC_DISABLE_BTNS) == SWC_DISABLE_BTNS) {
 		  // disable button interrupts
 		  XGpio_InterruptDisable(&BTNInst, BTN_INT);
@@ -261,6 +269,19 @@ int main (void)
 		  n_expires = DEFAULT_N_EXPIRES;
 		  // reset the LED count display
 		  led_data = 0b0000;
+	  }
+	  // check the switch to enable the increment expirations button
+	  switch (swc_value & SWC_ENABLE_INC_BTN) {
+	  	  // enable if all on
+	  	  case SWC_ENABLE_INC_BTN:
+			  is_inc_enabled = YES;
+	  	  break;
+	  	  // disable if all off
+	  	  case 0:
+			  is_inc_enabled = NO;
+	  	  break;
+  		  // do nothing otherwise
+	  	  default:	break;
 	  }
   }
 

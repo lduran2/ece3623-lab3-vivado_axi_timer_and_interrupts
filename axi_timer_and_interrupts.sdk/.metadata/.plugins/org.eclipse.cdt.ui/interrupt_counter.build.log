@@ -1,8 +1,8 @@
-04:02:45 **** Incremental Build of configuration Debug for project interrupt_counter ****
+12:38:14 **** Incremental Build of configuration Debug for project interrupt_counter ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for 'main-build'.
 
-04:02:46 Build Finished (took 792ms)
+12:38:15 Build Finished (took 944ms)
 

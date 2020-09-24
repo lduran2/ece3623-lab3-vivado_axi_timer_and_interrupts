@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Sep 23 13:54:53 2020
-# Process ID: 5292
+# Start of session at: Thu Sep 24 11:58:47 2020
+# Process ID: 11592
 # Current directory: C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1
 # Command line: vivado.exe -log zynq_interrupt_system_3_gpios_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_interrupt_system_3_gpios_wrapper.tcl
 # Log file: C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/zynq_interrupt_system_3_gpios_wrapper.vds
@@ -19,23 +19,23 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16388 
+INFO: Helper process launched with PID 11424 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 728.375 ; gain = 177.234
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 728.492 ; gain = 176.867
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_wrapper' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/hdl/zynq_interrupt_system_3_gpios_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:846]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_0_0' (1#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_1_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_1_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_1_0' (2#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_1_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_2_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_2_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_2_0' (3#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_2_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_timer_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_timer_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_timer_0_0' (4#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_timer_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_0_0' (1#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_1_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_1_0' (2#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_1_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_2_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_2_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_gpio_2_0' (3#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_gpio_2_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_axi_timer_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_timer_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_axi_timer_0_0' (4#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_axi_timer_0_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'axi_timer_0' of module 'zynq_interrupt_system_3_gpios_axi_timer_0_0' has 26 connections declared, but only 23 given [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:1100]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_processing_system7_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_processing_system7_0_0' (5#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_processing_system7_0_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_processing_system7_0_0' (5#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_processing_system7_0_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'zynq_interrupt_system_3_gpios_processing_system7_0_0' has 74 connections declared, but only 66 given [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:1124]
 INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:1323]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_GJXGJ8' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:12]
@@ -47,15 +47,15 @@ INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1A9FDLY' (8#1) [
 INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_1SFC5XR' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:408]
 INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_1SFC5XR' (9#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:408]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_MOOQ1X' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:540]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_auto_pc_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_auto_pc_0' (10#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_auto_pc_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_auto_pc_0' (10#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_auto_pc_0_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_MOOQ1X' (11#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:540]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_xbar_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_xbar_0' (12#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_xbar_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_xbar_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_xbar_0' (12#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_xbar_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'xbar' of module 'zynq_interrupt_system_3_gpios_xbar_0' has 40 connections declared, but only 38 given [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:2083]
 INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0' (13#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:1323]
-INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0' (14#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-5292-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0' [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0' (14#1) [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/.Xil/Vivado-11592-DESKTOP-7QAIPHN/realtime/zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0_stub.v:6]
 WARNING: [Synth 8-7023] instance 'rst_ps7_0_100M' of module 'zynq_interrupt_system_3_gpios_rst_ps7_0_100M_0' has 10 connections declared, but only 6 given [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/synth/zynq_interrupt_system_3_gpios.v:1310]
 INFO: [Synth 8-6157] synthesizing module 'zynq_interrupt_system_3_gpios_xlconcat_0_0' [c:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/ip/zynq_interrupt_system_3_gpios_xlconcat_0_0/synth/zynq_interrupt_system_3_gpios_xlconcat_0_0.v:58]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_3_xlconcat' [c:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.srcs/sources_1/bd/zynq_interrupt_system_3_gpios/ipshared/442e/hdl/xlconcat_v2_1_vl_rfs.v:14]
@@ -156,7 +156,7 @@ WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 
 WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 has unconnected port S00_ACLK
 WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 796.293 ; gain = 245.152
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 797.020 ; gain = 245.395
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -169,10 +169,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 796.293 ; gain = 245.152
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 797.020 ; gain = 245.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 796.293 ; gain = 245.152
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 797.020 ; gain = 245.395
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -198,20 +198,20 @@ Parsing XDC File [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts
 Finished Parsing XDC File [C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 867.254 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 866.605 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.042 . Memory (MB): peak = 867.254 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 866.605 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 867.254 ; gain = 316.113
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 866.605 ; gain = 314.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 867.254 ; gain = 316.113
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 866.605 ; gain = 314.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -488,10 +488,10 @@ Applied set_property DONT_TOUCH = true for zynq_interrupt_system_3_gpios_i/xlcon
 Applied set_property DONT_TOUCH = true for zynq_interrupt_system_3_gpios_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for zynq_interrupt_system_3_gpios_i/axi_gpio_2. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 867.254 ; gain = 316.113
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 866.605 ; gain = 314.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 867.254 ; gain = 316.113
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 866.605 ; gain = 314.980
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -537,7 +537,7 @@ WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 
 WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 has unconnected port S00_ACLK
 WARNING: [Synth 8-3331] design zynq_interrupt_system_3_gpios_ps7_0_axi_periph_0 has unconnected port S00_ARESETN
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 867.254 ; gain = 316.113
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 866.605 ; gain = 314.980
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -551,13 +551,13 @@ Start Applying XDC Timing Constraints
 INFO: [Synth 8-5578] Moved timing constraint from pin 'zynq_interrupt_system_3_gpios_i/processing_system7_0/FCLK_CLK0' to pin 'zynq_interrupt_system_3_gpios_i/processing_system7_0/bbstub_FCLK_CLK0/O'
 INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 885.371 ; gain = 334.230
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 883.875 ; gain = 332.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 885.445 ; gain = 334.305
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 884.023 ; gain = 332.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -569,7 +569,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 895.379 ; gain = 344.238
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 893.957 ; gain = 342.332
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -593,7 +593,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -606,7 +606,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -618,25 +618,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -683,25 +683,25 @@ Report Instance Areas:
 |5     |    xlconcat_0                    |zynq_interrupt_system_3_gpios_xlconcat_0_0       |     0|
 +------+----------------------------------+-------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 909.766 ; gain = 358.141
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 10 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 911.129 ; gain = 289.027
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 911.129 ; gain = 359.988
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:34 . Memory (MB): peak = 909.766 ; gain = 288.555
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 909.766 ; gain = 358.141
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 928.906 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 923.102 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 50 Infos, 72 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 928.906 ; gain = 632.371
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 928.906 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 923.102 ; gain = 626.828
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 923.102 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Zynq_Book/axi_timer_and_interrupts/axi_timer_and_interrupts.runs/synth_1/zynq_interrupt_system_3_gpios_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file zynq_interrupt_system_3_gpios_wrapper_utilization_synth.rpt -pb zynq_interrupt_system_3_gpios_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Sep 23 13:55:48 2020...
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 24 11:59:45 2020...
