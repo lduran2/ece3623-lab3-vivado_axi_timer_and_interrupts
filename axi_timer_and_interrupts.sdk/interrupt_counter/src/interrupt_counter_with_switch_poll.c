@@ -198,13 +198,14 @@ void TMR_Intr_Handler(void *data)
 				xil_printf("debouncing . . .\n");
 				// check if enough time has elapsed
 				if (tmr_count != dbn_tmr_count) {
-					// perform if still pressing the same button
+					dbn_state = NOT_DEBOUNCING;	// stop
+												// debouncing
+
+					// perform task if still pressing the same button
 					btn_value = XGpio_DiscreteRead(&BTNInst, 1);
 					if ((btn_value & dbn_btn_value) ==
 							dbn_btn_value)
 					{
-						dbn_state = NOT_DEBOUNCING;	// stop
-													// debouncing
 						switch (dbn_btn_value) {
 							case BTN_INC_EXPIRES:
 								n_expires++;	// increment the
@@ -221,12 +222,12 @@ void TMR_Intr_Handler(void *data)
 
 						// log the new number of expirations
 						xil_printf("# expirations:\t%d\n", n_expires);
-
-						// Clear and Enable GPIO interrupts
-						(void)XGpio_InterruptClear(&BTNInst,
-								BTN_INT);
-					    XGpio_InterruptEnable(&BTNInst, BTN_INT);
 					}
+
+					// Clear and Enable GPIO interrupts
+					(void)XGpio_InterruptClear(&BTNInst,
+							BTN_INT);
+				    XGpio_InterruptEnable(&BTNInst, BTN_INT);
 				}
 			break;
 			// if not debouncing, do nothing
