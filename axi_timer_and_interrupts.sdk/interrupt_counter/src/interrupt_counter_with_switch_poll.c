@@ -44,10 +44,31 @@
 #define INTC_TMR_INTERRUPT_ID XPAR_FABRIC_AXI_TIMER_0_INTERRUPT_INTR
 
 #define BTN_INT 			XGPIO_IR_CH1_MASK
-#define TMR_LOAD			0xF8000000
-// default number of interrupts for LED count incrementation
-#define	DEFAULT_N_EXPIRES	3
 
+// original TMR_LOAD:
+// since 32 LED counts ~ 166.62 seconds
+// TMR_LOAD = 0xF8000000 ~ 166.62 seconds/(32 counts * 3 expirations) = 1.7356 seconds
+// so  3 expirations = 5.2068 seconds, 32 counts = 166.62 seconds
+// and 7 expirations = 12.149 seconds, 32 counts = 388.77 seconds
+// 1.7356 seconds/7 = 0.24795 seconds should be enough for debounce
+// decreasing the clock increases delay, so the clock is in normal mode
+// and appears to be a 4-byte clock
+//
+// new TMR_LOAD:
+// 0x: FFFFFFFF - F8000000 + 1 = 08000000
+// 0x: 08000000 / 7 = 01249249
+// 0x: FFFFFFFF - 01249249 + 1 = FEDB6DB7
+// TMR_LOAD = 0xFEDB6DB7 should be 0.24795 seconds
+#define TMR_LOAD			0xFEDB6DB7	// ~0.24795 seconds
+#define	EXPIRATION_SCALE	8			// scales expirations
+
+// default number of interrupts for LED count incrementing
+#define	DEFAULT_N_EXPIRES	3
+// the maximum allowed number of expires
+#define MAX_N_EXPIRES		7
+
+// button to increase the expiration
+#define	BTN_INC_EXPIRES		0b0010
 // switch to disable button interrupts
 #define	SWC_DISABLE_BTNS	0b0001
 
@@ -61,8 +82,14 @@ XTmrCtr TMRInst;
 static int led_data;
 static int btn_value;
 static int tmr_count;
-static int n_expires;	// number of timer expires before count
+static int n_expires;	// number of timer expires before scale
 						// increments
+
+// for debouncing
+static enum { NOT_DEBOUNCING, DEBOUNCING } dbn_state = NOT_DEBOUNCING;
+static int dbn_tmr_count = 0;	// count at the time of starting debouncing
+
+
 
 //----------------------------------------------------
 // PROTOTYPE FUNCTIONS
@@ -89,6 +116,16 @@ void BTN_Intr_Handler(void *InstancePtr)
 			return;
 		}
 	btn_value = XGpio_DiscreteRead(&BTNInst, 1);
+
+	// debounce if the button to increment the expiration is pressed and n_expires is not already at max
+	if ((btn_value == BTN_INC_EXPIRES)
+			&& (n_expires != MAX_N_EXPIRES))
+	{
+		dbn_state = DEBOUNCING;		// set state to debouncing
+		dbn_tmr_count = tmr_count;	// record current time
+		return;	// do not continue
+	}
+
 	// Increment counter based on button value
 	// Reset if centre button pressed
 	led_data = led_data + btn_value;
@@ -102,18 +139,45 @@ void BTN_Intr_Handler(void *InstancePtr)
 void TMR_Intr_Handler(void *data)
 {
 	if (XTmrCtr_IsExpired(&TMRInst,0)){
-		// Once timer has expired (n_expires) times, stop, increment
-		// counter reset timer and start running again
-		if(tmr_count == n_expires){
-			XTmrCtr_Stop(&TMRInst,0);
+		// stop the timer if it expires
+		XTmrCtr_Stop(&TMRInst,0);
+
+		// check the debounce
+		switch (dbn_state) {
+			case DEBOUNCING:
+				xil_printf("debouncing . . .\n");
+				// check if enough time has elapsed
+				if (tmr_count != dbn_tmr_count) {
+					// continue if still pressing the button to increment the expiration
+					if (btn_value == BTN_INC_EXPIRES) {
+						dbn_state = NOT_DEBOUNCING;	// stop debouncing
+						n_expires++;	// increase the n_expires
+						xil_printf("# expirations:\n%d\n", n_expires);
+						(void)XGpio_InterruptClear(&BTNInst, BTN_INT);
+
+						// Enable GPIO interrupts
+					    XGpio_InterruptEnable(&BTNInst, BTN_INT);
+					}
+				}
+			break;
+			default:
+				// if not debouncing, do nothing
+			break;
+		}
+
+		// Once timer has expired (n_expires scaled) times,
+		// stop, increment counter reset timer and start
+		// running again
+		if(tmr_count == n_expires * EXPIRATION_SCALE){
 			tmr_count = 0;
 			led_data++;
 			XGpio_DiscreteWrite(&LEDInst, 1, led_data);
-			XTmrCtr_Reset(&TMRInst,0);
-			XTmrCtr_Start(&TMRInst,0);
 
 		}
 		else tmr_count++;
+		// in either case, reset and restart the timer
+		XTmrCtr_Reset(&TMRInst,0);
+		XTmrCtr_Start(&TMRInst,0);
 	}
 }
 
@@ -126,8 +190,9 @@ int main (void)
 {
   int status;
   int swc_value;
+  int next_swc_value;
 
-  // set the number of interrupts for LED count incrementation to the
+  // set the number of interrupts for LED count incrementing to the
   // default
   n_expires = DEFAULT_N_EXPIRES;
 
@@ -149,6 +214,8 @@ int main (void)
   XGpio_SetDataDirection(&BTNInst, 1, 0xFF);
   // Set all switches direction to inputs
   XGpio_SetDataDirection(&SWCInst, 1, 0xFF);
+  // Initialize first swc_value
+  swc_value = XGpio_DiscreteRead(&SWCInst, 1);
 
 
   //----------------------------------------------------
@@ -170,22 +237,30 @@ int main (void)
 
 
 
+  // log polling
+  xil_printf("polling . . .\n");
+
   while(1) {
 	  // poll switch 0
-	  swc_value = XGpio_DiscreteRead(&SWCInst, 1);
+	  next_swc_value = XGpio_DiscreteRead(&SWCInst, 1);
+	  // update and log on swc_value change
+	  if (swc_value != next_swc_value) {
+		  swc_value = next_swc_value;
+		  xil_printf("new switch value:\t0x%02x\n", swc_value);
+		  // only re-enable the button interrupts when changing on->off
+		  if ((swc_value & SWC_DISABLE_BTNS) == 0) {
+			  XGpio_InterruptEnable(&BTNInst, BTN_INT);
+		  }
+	  }
 	  // if on
 	  if ((swc_value & SWC_DISABLE_BTNS) == SWC_DISABLE_BTNS) {
 		  // disable button interrupts
 		  XGpio_InterruptDisable(&BTNInst, BTN_INT);
 		  // reset the number of interrupts for LED count
-		  // incrementation
+		  // incrementing
 		  n_expires = DEFAULT_N_EXPIRES;
 		  // reset the LED count display
 		  led_data = 0b0000;
-	  }
-	  else {
-		  // re-enable the button interrupts
-		  XGpio_InterruptEnable(&BTNInst, BTN_INT);
 	  }
   }
 
