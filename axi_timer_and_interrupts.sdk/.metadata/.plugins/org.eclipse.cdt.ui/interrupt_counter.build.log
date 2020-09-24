@@ -1,8 +1,47 @@
-12:38:14 **** Incremental Build of configuration Debug for project interrupt_counter ****
+18:10:37 **** Auto Build of configuration Debug for project interrupt_counter ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
-make: Nothing to be done for 'main-build'.
+'Building file: ../src/interrupt_counter_with_switch_poll.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/interrupt_counter_with_switch_poll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/interrupt_counter_with_switch_poll.d" -MT"src/interrupt_counter_with_switch_poll.o" -o "src/interrupt_counter_with_switch_poll.o" "../src/interrupt_counter_with_switch_poll.c"
+../src/interrupt_counter_with_switch_poll.c:80: warning: "FALSE" redefined
+ #define FALSE    0b0
+ 
+In file included from ../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include/xgpio.h:130,
+                 from ../src/interrupt_counter_with_switch_poll.c:39:
+../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include/xil_types.h:70: note: this is the location of the previous definition
+ #  define FALSE  0U
+ 
+../src/interrupt_counter_with_switch_poll.c:82: warning: "TRUE" redefined
+ #define TRUE    0b1
+ 
+In file included from ../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include/xgpio.h:130,
+                 from ../src/interrupt_counter_with_switch_poll.c:39:
+../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include/xil_types.h:66: note: this is the location of the previous definition
+ #  define TRUE  1U
+ 
+../src/interrupt_counter_with_switch_poll.c: In function 'main':
+../src/interrupt_counter_with_switch_poll.c:294:32: warning: passing argument 2 of 'XTmrCtr_SetHandler' from incompatible pointer type [-Wincompatible-pointer-types]
+   XTmrCtr_SetHandler(&TMRInst, TMR_Intr_Handler, &TMRInst);
+                                ^~~~~~~~~~~~~~~~
+In file included from ../src/interrupt_counter_with_switch_poll.c:40:
+../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/include/xtmrctr.h:317:64: note: expected 'XTmrCtr_Handler' {aka 'void (*)(void *, unsigned char)'} but argument is of type 'void (*)(void *)'
+ void XTmrCtr_SetHandler(XTmrCtr * InstancePtr, XTmrCtr_Handler FuncPtr,
+                                                ~~~~~~~~~~~~~~~~^~~~~~~
+'Finished building: ../src/interrupt_counter_with_switch_poll.c'
+' '
+'Building target: interrupt_counter.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../interrupt_counter_3_gpios_bsp/ps7_cortexa9_0/lib -o "interrupt_counter.elf"  ./src/interrupt_counter_with_switch_poll.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: interrupt_counter.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size interrupt_counter.elf  |tee "interrupt_counter.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  41812	   2384	  23400	  67596	  1080c	interrupt_counter.elf
+'Finished building: interrupt_counter.elf.size'
+' '
 
-12:38:15 Build Finished (took 944ms)
+18:10:41 Build Finished (took 4s.161ms)
 

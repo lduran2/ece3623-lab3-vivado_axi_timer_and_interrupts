@@ -3,7 +3,7 @@
  *
  *  Created on:		09/23/2020
  *      Author:		Leomar Duran
- *     Version:		1.2
+ *     Version:		1.4
  *
  * interrupt_counter_tut_2B.c
  *
@@ -16,6 +16,14 @@
 
 * VERSION HISTORY
 ********************************************************************************************
+* 	v1.4 - 09/24/2020
+* 		Added decrement button behavior with switch to activate the
+* 		interrupt.
+*
+* 	v1.3 - 09/24/2020
+* 		Added increment button behavior with switch to activate the
+* 		interrupt.
+*
 * 	v1.2 - 09/23/2020
 * 		Added switch to disable button interrupts, reset expirations
 * 		and the LED counter data.
@@ -66,13 +74,23 @@
 #define	DEFAULT_N_EXPIRES	3
 // the maximum allowed number of expires
 #define MAX_N_EXPIRES		7
+// the minimum allowed number of expires
+#define MIN_N_EXPIRES		1
+// a boolean false value
+#define FALSE				0b0
+// a boolean  true value
+#define TRUE				0b1
 
 // button to increase the expiration
 #define	BTN_INC_EXPIRES		0b0010
+// button to decrease the expiration
+#define	BTN_DEC_EXPIRES		0b0100
 // switch to disable button interrupts
 #define	SWC_DISABLE_BTNS	0b0001
 // switch to enable the increment expirations button
 #define	SWC_ENABLE_INC_BTN	0b0010
+// switch to enable the decrement expirations button
+#define	SWC_ENABLE_DEC_BTN	0b0100
 
 // GPIO instances
 XGpio LEDInst, BTNInst, SWCInst;
@@ -84,13 +102,16 @@ XTmrCtr TMRInst;
 static int led_data;
 static int btn_value;
 static int tmr_count;
-static int n_expires;	// number of timer expires before scale
-						// increments
-static enum { YES, NO } is_inc_enabled = NO;
+static int n_expires;	// number of timer expires before
+						// incrementing LED count
+static enum { YES, NO }
+		is_inc_enabled = NO,
+		is_dec_enabled = NO;
 
 // for debouncing
 static enum { NOT_DEBOUNCING, DEBOUNCING } dbn_state = NOT_DEBOUNCING;
 static int dbn_tmr_count = 0;	// count at the time of starting debouncing
+static int dbn_btn_value = 0;	// button triggered debounce
 
 
 
@@ -111,6 +132,7 @@ static int IntcInitFunction(u16 DeviceId, XTmrCtr *TmrInstancePtr, XGpio *GpioIn
 
 void BTN_Intr_Handler(void *InstancePtr)
 {
+	int should_debounce = FALSE;
 	// Disable GPIO interrupts
 	XGpio_InterruptDisable(&BTNInst, BTN_INT);
 	// Ignore additional button presses
@@ -119,18 +141,37 @@ void BTN_Intr_Handler(void *InstancePtr)
 			return;
 		}
 	btn_value = XGpio_DiscreteRead(&BTNInst, 1);
+	// log the conditions used to make the following decisions
 	xil_printf("button pressed:\t0x%02x\t\t", btn_value);
 	xil_printf("# expirations:\t%d\t\t", n_expires);
-	xil_printf("inc enabled:\t%d\n", (is_inc_enabled == YES) & 1);
+	xil_printf("inc:\t%s\t\t", (is_inc_enabled == YES) ? "YES" : "NO");
+	xil_printf("dec:\t%s\t\t", (is_dec_enabled == YES) ? "YES" : "NO");
+	xil_printf("\n");
 
 
-	// debounce if the button to increment the expiration is pressed and n_expires is not already at max
+	// debounce if the switch and button to increment the expiration
+	// are on and n_expires is not already at max
 	if ((is_inc_enabled == YES)
-			&& (btn_value == BTN_INC_EXPIRES)
+			&& ((btn_value & BTN_INC_EXPIRES) == BTN_INC_EXPIRES)
 			&& (n_expires != MAX_N_EXPIRES))
 	{
-		dbn_state = DEBOUNCING;		// set state to debouncing
+		dbn_btn_value = BTN_INC_EXPIRES;
+		should_debounce = TRUE;
+	}
+	// debounce if the switch and button to decrement the expiration
+	// are on and n_expires is not already at min
+	else if ((is_dec_enabled == YES)
+			&& ((btn_value & BTN_DEC_EXPIRES) == BTN_DEC_EXPIRES)
+			&& (n_expires != MIN_N_EXPIRES))
+	{
+		dbn_btn_value = MIN_N_EXPIRES;
+		should_debounce = TRUE;
+	}
+
+	// continue to debounce if should
+	if (should_debounce) {
 		dbn_tmr_count = tmr_count;	// record current time
+		dbn_state = DEBOUNCING;		// start debouncing
 		return;	// do not continue
 	}
 
@@ -157,14 +198,33 @@ void TMR_Intr_Handler(void *data)
 				xil_printf("debouncing . . .\n");
 				// check if enough time has elapsed
 				if (tmr_count != dbn_tmr_count) {
-					// continue if still pressing the button to increment the expiration
-					if (btn_value == BTN_INC_EXPIRES) {
-						dbn_state = NOT_DEBOUNCING;	// stop debouncing
-						n_expires++;	// increase the n_expires
-						xil_printf("# expirations:\t%d\n", n_expires);
-						(void)XGpio_InterruptClear(&BTNInst, BTN_INT);
+					// perform if still pressing the same button
+					btn_value = XGpio_DiscreteRead(&BTNInst, 1);
+					if ((btn_value & dbn_btn_value) ==
+							dbn_btn_value)
+					{
+						dbn_state = NOT_DEBOUNCING;	// stop
+													// debouncing
+						switch (dbn_btn_value) {
+							case BTN_INC_EXPIRES:
+								n_expires++;	// increment the
+												// n_expires
+							break;
+							case BTN_DEC_EXPIRES:
+								n_expires--;	// decrement the
+												// n_expires
+								tmr_count %= (n_expires *
+												EXPIRATION_SCALE);
+								// prevent overflow
+							break;
+						}
 
-						// Enable GPIO interrupts
+						// log the new number of expirations
+						xil_printf("# expirations:\t%d\n", n_expires);
+
+						// Clear and Enable GPIO interrupts
+						(void)XGpio_InterruptClear(&BTNInst,
+								BTN_INT);
 					    XGpio_InterruptEnable(&BTNInst, BTN_INT);
 					}
 				}
@@ -255,7 +315,8 @@ int main (void)
 	  if (swc_value != next_swc_value) {
 		  swc_value = next_swc_value;
 		  xil_printf("new switch value:\t0x%02x\n", swc_value);
-		  // only re-enable the button interrupts when changing on->off
+		  // only re-enable the button interrupts when changing
+		  // on->off
 		  if ((swc_value & SWC_DISABLE_BTNS) == 0) {
 			  XGpio_InterruptEnable(&BTNInst, BTN_INT);
 		  }
@@ -270,7 +331,8 @@ int main (void)
 		  // reset the LED count display
 		  led_data = 0b0000;
 	  }
-	  // check the switch to enable the increment expirations button
+	  // check the switch to enable the increment expirations
+	  // button
 	  switch (swc_value & SWC_ENABLE_INC_BTN) {
 	  	  // enable if all on
 	  	  case SWC_ENABLE_INC_BTN:
@@ -279,6 +341,20 @@ int main (void)
 	  	  // disable if all off
 	  	  case 0:
 			  is_inc_enabled = NO;
+	  	  break;
+  		  // do nothing otherwise
+	  	  default:	break;
+	  }
+	  // check the switch to enable the decrement expirations
+	  // button
+	  switch (swc_value & SWC_ENABLE_DEC_BTN) {
+	  	  // enable if all on
+	  	  case SWC_ENABLE_DEC_BTN:
+			  is_dec_enabled = YES;
+	  	  break;
+	  	  // disable if all off
+	  	  case 0:
+			  is_dec_enabled = NO;
 	  	  break;
   		  // do nothing otherwise
 	  	  default:	break;
